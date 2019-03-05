@@ -53,7 +53,7 @@ enum PlayingCardKind
 {
 	Standard,
 	Joker,
-};
+}
 
 union PlayingCardData
 {
@@ -80,15 +80,15 @@ bool operator>=(Card a, Card b);
 
 
 
-class StandardCard
+struct StandardCard
 {
-public:
-    Card(Rank r, Suit s)
-    :rank(r), suit(s)
-    {}
-    
-    Rank get_rank() const {return rank;}
-    Suit get_suit() const {return suit;}
+	
+	Card(Rank r, Suit s)
+	:rank(r), suit(s)
+	{}
+
+	Rank get_rank() const {return rank;}
+	Suit get_suit() const {return suit;}
     
     
     
