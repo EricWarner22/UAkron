@@ -71,6 +71,7 @@ bool operator>=(Card a, Card b);
 
 class Deck : std::deque<Card>
 {
+	public:
     using std::deque<Card>::deque;
 };
 
