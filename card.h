@@ -69,9 +69,9 @@ bool operator>(Card a, Card b);
 bool operator<=(Card a, Card b);
 bool operator>=(Card a, Card b);
 
-class Deck : Card
+class Deck : std::deque<Card>
 {
-    std::list<Card> cards;
+    using std::deque<Card>::deque;
 };
 
 std::ostream& operator<<(std::ostream& os, Suit s);
