@@ -16,8 +16,8 @@
  */
 int main(int argc, char** argv) 
 {
-    Deck a {};
-       a.cards.push_back(Card{Ace,  Clubs});
+    Deck a {
+       Card{Ace,  Clubs};
        Card{Two,  Clubs},
        Card{Three,Clubs},
        Card{Four, Clubs},
@@ -73,7 +73,7 @@ int main(int argc, char** argv)
        Card{Queen,Spades},
        Card{King, Spades}, 
         
-    }
+    };
     std::cout << a << std::endl;
     
     std::random_device r;
