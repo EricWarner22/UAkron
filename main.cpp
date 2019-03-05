@@ -78,7 +78,7 @@ int main(int argc, char** argv)
     
     std::random_device r;
     std::minstd_rand prng(r());
-    std::shuffle(a.begin(),a.end(),prng);
+    std::random_shuffle(a.begin(),a.end(),prng);
     
     std::cout << a << std::endl;
 	
