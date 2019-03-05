@@ -43,7 +43,44 @@ enum Rank
     King,
 };
 
-class Card
+enum Color
+{
+	Black,
+	Red,
+}
+
+enum PlayingCardKind
+{
+	Standard,
+	Joker,
+};
+
+union PlayingCardData
+{
+	PlayingCardData(Rank r, Suit s)
+	:sc(r,s)
+	{}
+	
+	PlayingCardData(Color c)
+	:jc(c)
+	{}
+	
+	StandardCard sc;
+	JokerCard jc;
+};
+
+
+bool operator==(Card a, Card b);
+bool operator!=(Card a, Card b);
+
+bool operator<(Card a, Card b);
+bool operator>(Card a, Card b);
+bool operator<=(Card a, Card b);
+bool operator>=(Card a, Card b);
+
+
+
+class StandardCard
 {
 public:
     Card(Rank r, Suit s)
@@ -61,23 +98,86 @@ private:
     
 };
 
-bool operator==(Card a, Card b);
-bool operator!=(Card a, Card b);
-
-bool operator<(Card a, Card b);
-bool operator>(Card a, Card b);
-bool operator<=(Card a, Card b);
-bool operator>=(Card a, Card b);
-
-class Deck : std::deque<Card>
+struct JokerCard
 {
+	JokerCard(Color c)
+	:color(c)
+	{}
+	
+	Color get_color() const
+	{
+		return color;
+	}
+
+private:
+	Color color;
+};
+
+struct PlayingCard
+{
+private:
+	PlayingCardKind tag;
+	PlayingCardData data;
+
 public:
-    using std::deque<Card>::deque;
+	PlayingCard(Rank r, Suit s) 
+	:tag(Standard), data(r,s)
+	{}
+	
+	PlayingCard(Color c) 
+	:tag(Joker), data(c)
+	{}
+	
+	bool is_standard() const
+	{
+		return (tag==Standard);
+	}
+	
+	bool is_joker() const
+	{
+		return (tag==Joker);
+	}
+	
+	Rank get_rank() const
+	{
+		return data.sc.get_rank();
+	}
+	
+	Suit get_suit() const
+	{
+		return data.sc.get_suit();
+	}
+	
+	Color get_color() const
+	{
+		return data.jc.get_color();
+	}
+	
+	StandardCard get_standard() const 
+	{
+		return data.sc;
+	}
+	
+	JokerCard get_joker() const
+	{
+		return data.jc;
+	}
+};
+
+struct PlayingCard : std::variant<StandardCard,JokerCard>
+{};
+
+struct Deck : std::deque<PlayingCard>
+{
+    using std::deque<PlayingCard>::deque;
 };
 
 std::ostream& operator<<(std::ostream& os, Suit s);
 std::ostream& operator<<(std::ostream& os, Rank r);
-std::ostream& operator<<(std::ostream& os, Card c);
+std::ostream& operator<<(std::ostream& os, Color c);
+std::ostream& operator<<(std::ostream& os, PlayingCard c);
+std::ostream& operator<<(std::ostream& os, JokerCard c);
+std::ostream& operator<<(std::ostream& os, StandardCard c);
 std::ostream& operator<<(std::ostream& os, Deck const& d);
 
 #endif	/* CARD_H */

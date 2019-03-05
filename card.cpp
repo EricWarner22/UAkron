@@ -12,7 +12,7 @@
 
 /*
  * 
- */
+ 
 bool operator==(Card a, Card b)
 {
     return (a.get_rank() == b.get_rank() && a.get_suit() == b.get_suit());
@@ -50,6 +50,9 @@ bool operator<=(Card a, Card b)
 {
     return !(b < a);
 }
+*/
+
+
 
 std::ostream&operator<<(std::ostream&os, Suit s)
 {
@@ -82,15 +85,44 @@ std::ostream&operator<<(std::ostream& os, Rank r)
     }
 }
 
-std::ostream&operator<<(std::ostream& os, Card c)
+std::ostream&operator<<(std::ostream& os, StandardCard c)
 {
     return os << c.get_rank() << c.get_suit();
 }
 
+std::ostream&operator<<(std::ostream& os,Color c)
+{
+	if(c==Black){return os << "B";}
+	else {return os << "R";}
+	
+    return os << c.get_rank() << c.get_suit();
+}
+
+std::ostream&operator<<(std::ostream& os,JokerCard c)
+{
+	
+    return os << c.get_color();
+}
+
+std::ostream&operator<<(std::ostream& os,Color c)
+{
+	if(c==Black){return os << "B";}
+	else {return os << "R";}
+	
+}
+
+std::ostream&operator<<(std::ostream& os,PlayingCard c)
+{
+	if(c.is_standard()){return os << c.get_standard();}
+	else {return os << c.get_joker();}
+	
+}
+
+
 std::ostream&operator<<(std::ostream& os, Deck const& d)
 {
     int i = 0;
-    for (Card c : d)
+    for (PlayingCard c : d)
     {
         os << c << ' ';
         if (i==12) { os << std::endl; i=0;}
@@ -98,3 +130,8 @@ std::ostream&operator<<(std::ostream& os, Deck const& d)
     }
     return os;
 }
+
+
+
+
+
