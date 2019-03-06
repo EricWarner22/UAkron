@@ -73,7 +73,7 @@ private:
     Suit suit;
     Rank rank;
     
-};
+}
 
 struct JokerCard
 {
@@ -88,7 +88,7 @@ struct JokerCard
 
 private:
 	Color color;
-};
+}
 
 union PlayingCardData
 {
@@ -153,15 +153,15 @@ public:
 	{
 		return data.jc;
 	}
-};
+}
 
 struct PlayingCard : std::variant<StandardCard,JokerCard>
-{};
+{}
 
 struct Deck : std::deque<PlayingCard>
 {
     using std::deque<PlayingCard>::deque;
-};
+}
 
 
 bool operator==(Card a, Card b);
