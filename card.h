@@ -69,21 +69,10 @@ union PlayingCardData
 	JokerCard jc;
 };
 
-
-bool operator==(Card a, Card b);
-bool operator!=(Card a, Card b);
-
-bool operator<(Card a, Card b);
-bool operator>(Card a, Card b);
-bool operator<=(Card a, Card b);
-bool operator>=(Card a, Card b);
-
-
-
 struct StandardCard
 {
 	
-	Card(Rank r, Suit s)
+	StandardCard(Rank r, Suit s)
 	:rank(r), suit(s)
 	{}
 
@@ -171,6 +160,19 @@ struct Deck : std::deque<PlayingCard>
 {
     using std::deque<PlayingCard>::deque;
 };
+
+
+bool operator==(Card a, Card b);
+bool operator!=(Card a, Card b);
+
+bool operator<(Card a, Card b);
+bool operator>(Card a, Card b);
+bool operator<=(Card a, Card b);
+bool operator>=(Card a, Card b);
+
+
+
+
 
 std::ostream& operator<<(std::ostream& os, Suit s);
 std::ostream& operator<<(std::ostream& os, Rank r);
