@@ -57,9 +57,9 @@ enum PlayingCardKind
 
 
 
-struct StandardCard
+class StandardCard
 {
-	
+public:	
 	StandardCard(Rank r, Suit s)
 	:rank(r), suit(s)
 	{}
@@ -73,7 +73,7 @@ private:
     Suit suit;
     Rank rank;
     
-}
+};
 
 struct JokerCard
 {
@@ -88,7 +88,7 @@ struct JokerCard
 
 private:
 	Color color;
-}
+};
 
 union PlayingCardData
 {
@@ -153,15 +153,15 @@ public:
 	{
 		return data.jc;
 	}
-}
+};
 
 struct PlayingCard : std::variant<StandardCard,JokerCard>
-{}
+{};
 
 struct Deck : std::deque<PlayingCard>
 {
     using std::deque<PlayingCard>::deque;
-}
+};
 
 
 bool operator==(Card a, Card b);
