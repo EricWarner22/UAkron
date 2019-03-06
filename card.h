@@ -155,8 +155,8 @@ public:
 	}
 };
 
-class PlayingCard : std::variant<StandardCard,JokerCard>
-{};
+//class PlayingCard : std::variant<StandardCard,JokerCard>
+//{};
 
 struct Deck : std::deque<PlayingCard>
 {
@@ -164,13 +164,13 @@ struct Deck : std::deque<PlayingCard>
 };
 
 
-bool operator==(Card a, Card b);
-bool operator!=(Card a, Card b);
+bool operator==(StandardCard a, StandardCard b);
+bool operator!=(StandardCard a, StandardCard b);
 
-bool operator<(Card a, Card b);
-bool operator>(Card a, Card b);
-bool operator<=(Card a, Card b);
-bool operator>=(Card a, Card b);
+bool operator<(StandardCard a, StandardCard b);
+bool operator>(StandardCard a, StandardCard b);
+bool operator<=(StandardCard a, StandardCard b);
+bool operator>=(StandardCard a, StandardCard b);
 
 
 
