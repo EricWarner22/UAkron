@@ -155,7 +155,7 @@ public:
 	}
 };
 
-struct PlayingCard : std::variant<StandardCard,JokerCard>
+class PlayingCard : std::variant<StandardCard,JokerCard>
 {};
 
 struct Deck : std::deque<PlayingCard>
