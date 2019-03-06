@@ -55,19 +55,7 @@ enum PlayingCardKind
 	Joker,
 }
 
-union PlayingCardData
-{
-	PlayingCardData(Rank r, Suit s)
-	:sc(r,s)
-	{}
-	
-	PlayingCardData(Color c)
-	:jc(c)
-	{}
-	
-	StandardCard sc;
-	JokerCard jc;
-};
+
 
 struct StandardCard
 {
@@ -100,6 +88,20 @@ struct JokerCard
 
 private:
 	Color color;
+};
+
+union PlayingCardData
+{
+	PlayingCardData(Rank r, Suit s)
+	:sc(r,s)
+	{}
+	
+	PlayingCardData(Color c)
+	:jc(c)
+	{}
+	
+	StandardCard sc;
+	JokerCard jc;
 };
 
 struct PlayingCard
