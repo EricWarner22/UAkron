@@ -86,8 +86,6 @@ int main(int argc, char** argv)
     
     std::cout << a << std::endl;
 	
-	std::sort(a.begin(),a.end());
-
     return 0;
 }
 
