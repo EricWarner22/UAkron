@@ -47,13 +47,13 @@ enum Color
 {
 	Black,
 	Red,
-}
+};
 
 enum PlayingCardKind
 {
 	Standard,
 	Joker,
-}
+};
 
 
 
