@@ -95,7 +95,6 @@ std::ostream&operator<<(std::ostream& os,Color c)
 	if(c==Black){return os << "B";}
 	else {return os << "R";}
 	
-    return os << c.get_rank() << c.get_suit();
 }
 
 std::ostream&operator<<(std::ostream& os,JokerCard c)
@@ -104,12 +103,6 @@ std::ostream&operator<<(std::ostream& os,JokerCard c)
     return os << c.get_color();
 }
 
-std::ostream&operator<<(std::ostream& os,Color c)
-{
-	if(c==Black){return os << "B";}
-	else {return os << "R";}
-	
-}
 
 std::ostream&operator<<(std::ostream& os,PlayingCard c)
 {
