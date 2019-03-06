@@ -13,10 +13,6 @@
 #include <list>
 #include <iosfwd>
 
-char club = 'C';
-char spade = 'S';
-char heart = 'H';
-char diamond = 'D';
 
 enum Suit
 {
