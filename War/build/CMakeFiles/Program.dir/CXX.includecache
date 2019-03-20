@@ -1,0 +1,36 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/ericwarner22/UAkron/War/card.cpp
+card.h
+/home/ericwarner22/UAkron/War/card.h
+iostream
+-
+
+/home/ericwarner22/UAkron/War/card.h
+iostream
+-
+queue
+-
+list
+-
+iosfwd
+-
+
+/home/ericwarner22/UAkron/War/main.cpp
+card.h
+/home/ericwarner22/UAkron/War/card.h
+cstdlib
+-
+iostream
+-
+random
+-
+algorithm
+-
+

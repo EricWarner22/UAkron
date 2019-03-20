@@ -1,0 +1,3 @@
+/home/ericwarner22/UAkron/War/build/CMakeFiles/rebuild_cache.dir
+/home/ericwarner22/UAkron/War/build/CMakeFiles/Program.dir
+/home/ericwarner22/UAkron/War/build/CMakeFiles/edit_cache.dir
