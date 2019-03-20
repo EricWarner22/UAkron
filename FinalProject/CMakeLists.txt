@@ -1,9 +1,6 @@
+cmake_minimum_required(VERSION 3.6)   # CMake version check
+project(GameOfWar)               # Create project "simple_example"
+set(CMAKE_CXX_STANDARD 11)            # Enable c++11 standard
+ 
 
-cmake_minimum_required(VERSION 3.8)
-list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/../cmake")
-
-find_package(SFML COMPONENTS graphics window system)
-include_directories(${SFML_INCLUDE_DIR})
-
-add_executable(race main.cpp)
-target_link_libraries(race ${SFML_LIBRARIES})
+add_executable(Program main.cpp card.cpp card.h)       # Add executable target with source files listed in SOURCE_FILES variable
