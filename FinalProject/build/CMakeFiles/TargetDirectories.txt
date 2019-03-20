@@ -1,0 +1,3 @@
+/home/ericwarner22/UAkron/FinalProject/build/CMakeFiles/rebuild_cache.dir
+/home/ericwarner22/UAkron/FinalProject/build/CMakeFiles/race.dir
+/home/ericwarner22/UAkron/FinalProject/build/CMakeFiles/edit_cache.dir
