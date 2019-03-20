@@ -123,6 +123,60 @@ race/fast:
 	$(MAKE) -f CMakeFiles/race.dir/build.make CMakeFiles/race.dir/build
 .PHONY : race/fast
 
+Car.o: Car.cpp.o
+
+.PHONY : Car.o
+
+# target to build an object file
+Car.cpp.o:
+	$(MAKE) -f CMakeFiles/race.dir/build.make CMakeFiles/race.dir/Car.cpp.o
+.PHONY : Car.cpp.o
+
+Car.i: Car.cpp.i
+
+.PHONY : Car.i
+
+# target to preprocess a source file
+Car.cpp.i:
+	$(MAKE) -f CMakeFiles/race.dir/build.make CMakeFiles/race.dir/Car.cpp.i
+.PHONY : Car.cpp.i
+
+Car.s: Car.cpp.s
+
+.PHONY : Car.s
+
+# target to generate assembly for a file
+Car.cpp.s:
+	$(MAKE) -f CMakeFiles/race.dir/build.make CMakeFiles/race.dir/Car.cpp.s
+.PHONY : Car.cpp.s
+
+Holder.o: Holder.cpp.o
+
+.PHONY : Holder.o
+
+# target to build an object file
+Holder.cpp.o:
+	$(MAKE) -f CMakeFiles/race.dir/build.make CMakeFiles/race.dir/Holder.cpp.o
+.PHONY : Holder.cpp.o
+
+Holder.i: Holder.cpp.i
+
+.PHONY : Holder.i
+
+# target to preprocess a source file
+Holder.cpp.i:
+	$(MAKE) -f CMakeFiles/race.dir/build.make CMakeFiles/race.dir/Holder.cpp.i
+.PHONY : Holder.cpp.i
+
+Holder.s: Holder.cpp.s
+
+.PHONY : Holder.s
+
+# target to generate assembly for a file
+Holder.cpp.s:
+	$(MAKE) -f CMakeFiles/race.dir/build.make CMakeFiles/race.dir/Holder.cpp.s
+.PHONY : Holder.cpp.s
+
 main.o: main.cpp.o
 
 .PHONY : main.o
@@ -159,6 +213,12 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... race"
 	@echo "... edit_cache"
+	@echo "... Car.o"
+	@echo "... Car.i"
+	@echo "... Car.s"
+	@echo "... Holder.o"
+	@echo "... Holder.i"
+	@echo "... Holder.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"

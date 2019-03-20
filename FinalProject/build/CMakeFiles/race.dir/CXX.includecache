@@ -6,9 +6,33 @@
 
 #IncludeRegexTransform: 
 
+/home/ericwarner22/UAkron/FinalProject/Car.cpp
+Car.h
+/home/ericwarner22/UAkron/FinalProject/Car.h
+iostream
+-
+
+/home/ericwarner22/UAkron/FinalProject/Car.h
+
+/home/ericwarner22/UAkron/FinalProject/Holder.cpp
+queue
+-
+iostream
+-
+
+/home/ericwarner22/UAkron/FinalProject/Holder.h
+queue
+-
+iostream
+-
+
 /home/ericwarner22/UAkron/FinalProject/main.cpp
 cmath
 -
 SFML/Graphics.hpp
 -
+Car.h
+/home/ericwarner22/UAkron/FinalProject/Car.h
+Holder.h
+/home/ericwarner22/UAkron/FinalProject/Holder.h
 
