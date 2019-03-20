@@ -66,7 +66,7 @@ CMAKE_BINARY_DIR = /home/ericwarner22/UAkron/FinalProject/build
 CMakeFiles/race.dir/all:
 	$(MAKE) -f CMakeFiles/race.dir/build.make CMakeFiles/race.dir/depend
 	$(MAKE) -f CMakeFiles/race.dir/build.make CMakeFiles/race.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/ericwarner22/UAkron/FinalProject/build/CMakeFiles --progress-num=1,2,3,4 "Built target race"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/ericwarner22/UAkron/FinalProject/build/CMakeFiles --progress-num=1,2,3 "Built target race"
 .PHONY : CMakeFiles/race.dir/all
 
 # Include target in all.
@@ -76,7 +76,7 @@ all: CMakeFiles/race.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/race.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/ericwarner22/UAkron/FinalProject/build/CMakeFiles 4
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/ericwarner22/UAkron/FinalProject/build/CMakeFiles 3
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/race.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/ericwarner22/UAkron/FinalProject/build/CMakeFiles 0
 .PHONY : CMakeFiles/race.dir/rule

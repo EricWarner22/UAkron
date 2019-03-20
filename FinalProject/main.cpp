@@ -2,7 +2,6 @@
 
 #include <SFML/Graphics.hpp>
 #include "Car.h"
-#include "Holder.h"
 
 using namespace sf;
 
@@ -25,35 +24,38 @@ main()
   sCar.setOrigin(22, 22);
   float R = 22;
 
-  int spawn = 0;
 
   Car Player;
   Car Easy;
   Car Med;
   Car Hard;
 
-  Holder g
-  {
-    Player,
-    Easy,
-    Med,
-    Hard,
-  };
+  Car Holder[4] = {Player,Easy,Med,Hard};
 
-  for (Car c : g)
-  {
-    c.x = 300 + spawn * 50;
-    c.y = 1700 + spawn * 80;
-    c.speed = 7 + spawn;
-    spawn++;
+  /*Player.NPC = false;
+
+  Player.x = 350;
+  Player.y = 1780;
+  Player.speed = 7;
+
+  Easy.x = 400;
+  Easy.y = 1860;
+  Easy.speed = 8;
+
+  Med.x = 450;
+  Med.y = 1940;
+  Med.speed = 9;
+
+  Hard.x = 500;
+  Hard.y = 2020;
+  Hard.speed = 10;*/
+
+  for (int i = 0; i < 4; i++) {
+    Holder[i].x = 300 + i * 50;
+    Holder[i].y = 1700 + i * 80;
+    Holder[i].speed = 7 + i;
   }
 
-  /*for (int i = 1; i < N; i++) {
-    cars[i].x = 300 + i * 50;
-    cars[i].y = 1700 + i * 80;
-    cars[i].speed = 7 + i;
-  }
-  */
 
   float speed = 0, angle = 0;
   float maxSpeed = 12.0;
@@ -111,59 +113,73 @@ main()
     Player.speed = speed;
     Player.angle = angle;
 
-    for (Car c : g)
-    {
-      c.move();
-    }
-    for (Car c : g)
-    {
-      if (c.isN == true)
-      {
-        //c.findTarget();
-      }
-    }
 
-    /*for (int i = 0; i < N; i++)
-      cars[i].move();
-    for (int i = 1; i < N; i++)
-      cars[i].findTarget();
+    /*Player.move();
+    Easy.move();
+    Med.move();
+    Hard.move();
+  
+    Easy.findTarget();
+    Med.findTarget();
+    Hard.findTarget();
     */
-    // collision
-    for (int i = 0; i < N; i++)
-      for (int j = 0; j < N; j++) {
+
+    for (int i = 0; i < 4; i++)
+      Holder[i].move();
+    for (int i = 1; i < 4; i++)
+      Holder[i].findTarget();
+
+    
+    for (int a = 0; a < 4; a++)
+    {
+      for (int b = 0; b < 4; b++)
+      {
+
         int dx = 0, dy = 0;
-        while (dx * dx + dy * dy < 4 * R * R) {
-          cars[i].x += dx / 10.0;
-          cars[i].x += dy / 10.0;
-          cars[j].x -= dx / 10.0;
-          cars[j].y -= dy / 10.0;
-          dx = cars[i].x - cars[j].x;
-          dy = cars[i].y - cars[j].y;
-          if (!dx && !dy)
-            break;
+        while (dx * dx + dy * dy < 4 * R * R) 
+        {
+          Holder[a].x += dx / 10.0;
+          Holder[a].x += dy / 10.0;
+          Holder[b].x -= dx / 10.0;
+          Holder[b].y -= dy / 10.0;
+          dx = Holder[a].x - Holder[b].x;
+          dy = Holder[a].y - Holder[b].y;
+          if (!dx && !dy){break;}
         }
       }
+    }
 
     app.clear(Color::White);
 
-    if (cars[0].x > 320)
-      offsetX = cars[0].x - 320;
-    if (cars[0].y > 240)
-      offsetY = cars[0].y - 240;
+    if (Player.x > 320)
+      offsetX = Player.x - 320;
+    if (Player.y > 240)
+      offsetY = Player.y - 240;
 
     sBackground.setPosition(-offsetX, -offsetY);
     app.draw(sBackground);
 
-    Color colors[10] = {
+    Color colors[10] = 
+    {
       Color::Red, Color::Green, Color::Magenta, Color::Blue, Color::White
     };
 
-    for (int i = 0; i < N; i++) {
-      sCar.setPosition(cars[i].x - offsetX, cars[i].y - offsetY);
-      sCar.setRotation(cars[i].angle * 180 / 3.141593);
+    for (int i = 0; i < 4; i++) {
+      sCar.setPosition(Holder[i].x - offsetX, Holder[i].y - offsetY);
+      sCar.setRotation(Holder[i].angle * 180 / 3.141593);
       sCar.setColor(colors[i]);
       app.draw(sCar);
     }
+
+    /*int color=0;
+    for (Car c : g)
+    {
+      sCar.setPosition(c.x - offsetX, c.y - offsetY);
+      sCar.setRotation(c.angle * 180 / 3.141593);
+      sCar.setColor(colors[color]);
+      app.draw(sCar);
+      color++;
+    }*/
 
     app.display();
   }

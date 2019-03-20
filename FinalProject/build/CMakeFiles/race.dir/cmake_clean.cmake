@@ -1,7 +1,6 @@
 file(REMOVE_RECURSE
   "CMakeFiles/race.dir/main.cpp.o"
   "CMakeFiles/race.dir/Car.cpp.o"
-  "CMakeFiles/race.dir/Holder.cpp.o"
   "race.pdb"
   "race"
 )
