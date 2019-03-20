@@ -15,7 +15,6 @@ struct Car
 
 	float x, y, speed, angle;
 	int n;
-	bool NPC=true;
 
 	Car()
 	{

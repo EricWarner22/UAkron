@@ -2,6 +2,8 @@
 
 #include <SFML/Graphics.hpp>
 #include "Car.h"
+#include <random>
+#include <time.h>
 
 using namespace sf;
 
@@ -29,28 +31,11 @@ main()
   Car Easy;
   Car Med;
   Car Hard;
+  Car Wowzers;
 
-  Car Holder[4] = {Player,Easy,Med,Hard};
+  Car Holder[5] = {Player,Easy,Med,Hard,Wowzers};
 
-  /*Player.NPC = false;
-
-  Player.x = 350;
-  Player.y = 1780;
-  Player.speed = 7;
-
-  Easy.x = 400;
-  Easy.y = 1860;
-  Easy.speed = 8;
-
-  Med.x = 450;
-  Med.y = 1940;
-  Med.speed = 9;
-
-  Hard.x = 500;
-  Hard.y = 2020;
-  Hard.speed = 10;*/
-
-  for (int i = 0; i < 4; i++) {
+  for (int i = 0; i < 5; i++) {
     Holder[i].x = 300 + i * 50;
     Holder[i].y = 1700 + i * 80;
     Holder[i].speed = 7 + i;
@@ -110,29 +95,19 @@ main()
     if (Left && speed != 0)
       angle -= turnSpeed * speed / maxSpeed;
 
-    Player.speed = speed;
-    Player.angle = angle;
+    Holder[0].speed = speed;
+    Holder[0].angle = angle;
 
 
-    /*Player.move();
-    Easy.move();
-    Med.move();
-    Hard.move();
-  
-    Easy.findTarget();
-    Med.findTarget();
-    Hard.findTarget();
-    */
-
-    for (int i = 0; i < 4; i++)
+    for (int i = 0; i < 5; i++)
       Holder[i].move();
-    for (int i = 1; i < 4; i++)
+    for (int i = 1; i < 5; i++)
       Holder[i].findTarget();
 
     
-    for (int a = 0; a < 4; a++)
+    for (int a = 0; a < 5; a++)
     {
-      for (int b = 0; b < 4; b++)
+      for (int b = 0; b < 5; b++)
       {
 
         int dx = 0, dy = 0;
@@ -151,12 +126,14 @@ main()
 
     app.clear(Color::White);
 
-    if (Player.x > 320)
-      offsetX = Player.x - 320;
-    if (Player.y > 240)
-      offsetY = Player.y - 240;
+
+    if (Holder[0].x > 320)
+      offsetX = Holder[0].x - 320;
+    if (Holder[0].y > 240)
+      offsetY = Holder[0].y - 240;
 
     sBackground.setPosition(-offsetX, -offsetY);
+
     app.draw(sBackground);
 
     Color colors[10] = 
@@ -164,22 +141,17 @@ main()
       Color::Red, Color::Green, Color::Magenta, Color::Blue, Color::White
     };
 
-    for (int i = 0; i < 4; i++) {
+    for (int i = 0; i < 5; i++) {
       sCar.setPosition(Holder[i].x - offsetX, Holder[i].y - offsetY);
       sCar.setRotation(Holder[i].angle * 180 / 3.141593);
       sCar.setColor(colors[i]);
+      if (i==4)
+      {
+        srand(time(NULL));
+        sCar.setColor(colors[rand()%5]);
+      }
       app.draw(sCar);
     }
-
-    /*int color=0;
-    for (Car c : g)
-    {
-      sCar.setPosition(c.x - offsetX, c.y - offsetY);
-      sCar.setRotation(c.angle * 180 / 3.141593);
-      sCar.setColor(colors[color]);
-      app.draw(sCar);
-      color++;
-    }*/
 
     app.display();
   }
