@@ -25,8 +25,8 @@ struct Car
 
 	void move()
 	{
-	x += std::sin(angle) * speed;
-	y -= std::cos(angle) * speed;
+		x += std::sin(angle) * speed;
+		y -= std::cos(angle) * speed;
 	}
 
 	void findTarget()

@@ -8,19 +8,24 @@
 using namespace sf;
 
 
+int Cpoints[8][2] = { 300,  610,  1270,  430,  1380, 2380, 1900, 2460,
+                     1970, 1700,  2550, 1680,  2560, 3150,  500, 3300, };
+
 int
 main()
 {
-  RenderWindow app(VideoMode(640, 480), "Car Racing Game!");
+  RenderWindow app(VideoMode(1280, 960), "Car Racing Game!");
   app.setFramerateLimit(60);
 
   Texture t1, t2, t3;
   t1.loadFromFile("images/background.png");
   t2.loadFromFile("images/car.png");
+  t3.loadFromFile("images/CheckPoint.png");
   t1.setSmooth(true);
   t2.setSmooth(true);
+  t3.setSmooth(true);
 
-  Sprite sBackground(t1), sCar(t2);
+  Sprite sBackground(t1), sCar(t2), sCheck(t3);
   sBackground.scale(2, 2);
 
   sCar.setOrigin(22, 22);
@@ -138,8 +143,31 @@ main()
 
     Color colors[10] = 
     {
-      Color::Red, Color::Green, Color::Magenta, Color::Blue, Color::White
+      Color::Red, 
+      Color::Green, 
+      Color::Magenta, 
+      Color::Blue, 
+      Color::White,
+      Color::Black,
+      Color::Yellow,
+      Color::Cyan,
+      Color::Transparent,
     };
+
+    //Hyper-simplified method of figuring out locations on this map
+
+    for (int i=0;i<8;i++){
+
+      float tx = points[i][0] -offsetX;
+      float ty = points[i][1] -offsetY;
+      sCheck.setPosition(tx,ty);
+      sCheck.setRotation(0);
+      sCheck.setColor(colors[i]);
+      app.draw(sCheck);
+    }
+
+
+    //-------------------------------------------------------------
 
     for (int i = 0; i < 5; i++) {
       sCar.setPosition(Holder[i].x - offsetX, Holder[i].y - offsetY);
@@ -148,7 +176,7 @@ main()
       if (i==4)
       {
         srand(time(NULL));
-        sCar.setColor(colors[rand()%5]);
+        sCar.setColor(colors[rand()%9]);
       }
       app.draw(sCar);
     }
