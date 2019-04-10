@@ -4,12 +4,13 @@
 #include "Car.h"
 #include <random>
 #include <time.h>
+#include <limits> // Just to get an exact value for max float size
 
 using namespace sf;
 
 
-int Cpoints[8][2] = { 300,  610,  1270,  430,  1380, 2380, 1900, 2460,
-                     1970, 1700,  2550, 1680,  2560, 3150,  500, 3300, };
+int Cpoints[8][2] = { 270,  370,  1270,  430,  1380, 2420, 1800, 2460,
+                     1850, 1700,  2500, 1680,  2150, 3200,  370, 3200, };
 
 int
 main()
@@ -46,6 +47,7 @@ main()
     Holder[i].speed = 7 + i;
   }
 
+  float bounce = 0;
 
   float speed = 0, angle = 0;
   float maxSpeed = 12.0;
@@ -154,17 +156,28 @@ main()
       Color::Transparent,
     };
 
+    Color cpColors[3] =
+    {
+      Color::Blue,
+      Color::Black,
+      Color::Cyan,
+    };
+
     //Hyper-simplified method of figuring out locations on this map
 
     for (int i=0;i<8;i++){
 
-      float tx = points[i][0] -offsetX;
-      float ty = points[i][1] -offsetY;
-      sCheck.setPosition(tx,ty);
+      float tx = Cpoints[i][0] -offsetX;
+      float ty = Cpoints[i][1] -offsetY;
+      sCheck.setScale(.3,.3);
+      sCheck.setPosition(tx,ty+(std::sin(bounce))*8);
       sCheck.setRotation(0);
-      sCheck.setColor(colors[i]);
+      sCheck.setColor(cpColors[rand()%3]);
       app.draw(sCheck);
     }
+
+    bounce=bounce+.05;
+    if ((bounce+1)>(std::numeric_limits<float>::max())){bounce=0;}
 
 
     //-------------------------------------------------------------
