@@ -1,1 +1,1 @@
-/usr/bin/c++     CMakeFiles/race.dir/main.cpp.o CMakeFiles/race.dir/Car.cpp.o  -o race /usr/lib/x86_64-linux-gnu/libsfml-graphics.so /usr/lib/x86_64-linux-gnu/libsfml-window.so /usr/lib/x86_64-linux-gnu/libsfml-system.so 
+/usr/bin/c++     CMakeFiles/race.dir/main.cpp.o CMakeFiles/race.dir/Car.cpp.o CMakeFiles/race.dir/CheckPoint.cpp.o  -o race /usr/lib/x86_64-linux-gnu/libsfml-graphics.so /usr/lib/x86_64-linux-gnu/libsfml-window.so /usr/lib/x86_64-linux-gnu/libsfml-system.so 

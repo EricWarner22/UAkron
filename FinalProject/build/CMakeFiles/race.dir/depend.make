@@ -3,6 +3,9 @@
 
 CMakeFiles/race.dir/Car.cpp.o: ../Car.cpp
 
+CMakeFiles/race.dir/CheckPoint.cpp.o: ../CheckPoint.cpp
+
 CMakeFiles/race.dir/main.cpp.o: ../Car.h
+CMakeFiles/race.dir/main.cpp.o: ../CheckPoint.h
 CMakeFiles/race.dir/main.cpp.o: ../main.cpp
 

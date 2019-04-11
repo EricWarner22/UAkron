@@ -2,15 +2,16 @@
 
 #include <SFML/Graphics.hpp>
 #include "Car.h"
+#include "CheckPoint.h"
 #include <random>
 #include <time.h>
 #include <limits> // Just to get an exact value for max float size
 
 using namespace sf;
 
+//int Cpoints[8][2] = { 270,  370,  1270,  430,  1380, 2420, 1800, 2460,
+ //                    1850, 1700,  2500, 1680,  2150, 3200,  370, 3200, };
 
-int Cpoints[8][2] = { 270,  370,  1270,  430,  1380, 2420, 1800, 2460,
-                     1850, 1700,  2500, 1680,  2150, 3200,  370, 3200, };
 
 int
 main()
@@ -28,6 +29,7 @@ main()
 
   Sprite sBackground(t1), sCar(t2), sCheck(t3);
   sBackground.scale(2, 2);
+  sCheck.setScale(.3,.3);
 
   sCar.setOrigin(22, 22);
   float R = 22;
@@ -39,7 +41,27 @@ main()
   Car Hard;
   Car Wowzers;
 
+
   Car Holder[5] = {Player,Easy,Med,Hard,Wowzers};
+
+  CheckPoint Checks[8];
+
+  Checks[0] = CheckPoint(270,370);
+  Checks[1] = CheckPoint(1270,430);
+  Checks[2] = CheckPoint(1380,2420);
+  Checks[3] = CheckPoint(1800,2460);
+  Checks[4] = CheckPoint(1850,1700);
+  Checks[5] = CheckPoint(2500,1680);
+  Checks[6] = CheckPoint(2150,3200);
+  Checks[7] = CheckPoint(370,3200);
+
+  float bounce = 0;
+  float speed = 0, angle = 0;
+  float maxSpeed = 12.0;
+  float acc = 0.2, dec = 0.3;
+  float turnSpeed = 0.06;
+
+  int currentCP = 0;
 
   for (int i = 0; i < 5; i++) {
     Holder[i].x = 300 + i * 50;
@@ -47,12 +69,6 @@ main()
     Holder[i].speed = 7 + i;
   }
 
-  float bounce = 0;
-
-  float speed = 0, angle = 0;
-  float maxSpeed = 12.0;
-  float acc = 0.2, dec = 0.3;
-  float turnSpeed = 0.08;
 
   int offsetX = 0, offsetY = 0;
 
@@ -163,9 +179,19 @@ main()
       Color::Cyan,
     };
 
+
+    for(int i=0;i<8;i++)
+    {
+      Checks[i].hover();
+      sCheck.setPosition(Checks[i].xp-offsetX,Checks[i].yp-offsetY);
+      sCheck.setColor(cpColors[rand()%3]);
+      app.draw(sCheck);
+    }
+
     //Hyper-simplified method of figuring out locations on this map
 
-    for (int i=0;i<8;i++){
+    /*for (int i=0;i<8;i++)
+    {
 
       float tx = Cpoints[i][0] -offsetX;
       float ty = Cpoints[i][1] -offsetY;
@@ -178,7 +204,7 @@ main()
 
     bounce=bounce+.05;
     if ((bounce+1)>(std::numeric_limits<float>::max())){bounce=0;}
-
+    */
 
     //-------------------------------------------------------------
 

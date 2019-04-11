@@ -16,6 +16,14 @@ iostream
 cmath
 -
 
+/home/ericwarner22/UAkron/FinalProject/CheckPoint.cpp
+
+/home/ericwarner22/UAkron/FinalProject/CheckPoint.h
+iostream
+-
+cmath
+-
+
 /home/ericwarner22/UAkron/FinalProject/main.cpp
 cmath
 -
@@ -23,6 +31,8 @@ SFML/Graphics.hpp
 -
 Car.h
 /home/ericwarner22/UAkron/FinalProject/Car.h
+CheckPoint.h
+/home/ericwarner22/UAkron/FinalProject/CheckPoint.h
 random
 -
 time.h

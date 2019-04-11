@@ -150,6 +150,33 @@ Car.cpp.s:
 	$(MAKE) -f CMakeFiles/race.dir/build.make CMakeFiles/race.dir/Car.cpp.s
 .PHONY : Car.cpp.s
 
+CheckPoint.o: CheckPoint.cpp.o
+
+.PHONY : CheckPoint.o
+
+# target to build an object file
+CheckPoint.cpp.o:
+	$(MAKE) -f CMakeFiles/race.dir/build.make CMakeFiles/race.dir/CheckPoint.cpp.o
+.PHONY : CheckPoint.cpp.o
+
+CheckPoint.i: CheckPoint.cpp.i
+
+.PHONY : CheckPoint.i
+
+# target to preprocess a source file
+CheckPoint.cpp.i:
+	$(MAKE) -f CMakeFiles/race.dir/build.make CMakeFiles/race.dir/CheckPoint.cpp.i
+.PHONY : CheckPoint.cpp.i
+
+CheckPoint.s: CheckPoint.cpp.s
+
+.PHONY : CheckPoint.s
+
+# target to generate assembly for a file
+CheckPoint.cpp.s:
+	$(MAKE) -f CMakeFiles/race.dir/build.make CMakeFiles/race.dir/CheckPoint.cpp.s
+.PHONY : CheckPoint.cpp.s
+
 main.o: main.cpp.o
 
 .PHONY : main.o
@@ -189,6 +216,9 @@ help:
 	@echo "... Car.o"
 	@echo "... Car.i"
 	@echo "... Car.s"
+	@echo "... CheckPoint.o"
+	@echo "... CheckPoint.i"
+	@echo "... CheckPoint.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
