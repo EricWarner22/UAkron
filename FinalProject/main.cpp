@@ -18,7 +18,7 @@ main()
   Texture t1, t2, t3;
   t1.loadFromFile("images/background.png");
   t2.loadFromFile("images/car.png");
-  t3.loadFromFile("images/CheckPoint.png");
+  t3.loadFromFile("images/Check.png");
   t1.setSmooth(true);
   t2.setSmooth(true);
   t3.setSmooth(true);
@@ -168,11 +168,16 @@ main()
       Color::Transparent,
     };
 
-    Color cpColors[3] =
+    Color cpColors[8] =
     {
+      Color::Red, 
       Color::Blue,
-      Color::Black,
       Color::Cyan,
+      Color::Yellow,
+      Color::White,
+      Color::Green,
+      Color::Red, 
+      Color::Blue,
     };
 
 
@@ -180,9 +185,9 @@ main()
     {
       Checks[i].hover();
       sCheck.setPosition(Checks[i].xp-offsetX,Checks[i].yp-offsetY);
-      sCheck.setColor(cpColors[rand()%3]);
+      sCheck.setColor(cpColors[currentCP]);
       float dist = Player.findTarget(Holder[0].x,Holder[0].y,Checks[currentCP].xp,Checks[currentCP].yp,currentCP);
-      std::cout << dist << " " << currentCP <<  " " << Checks[currentCP].xp << " " << Checks[currentCP].yp << std::endl;
+      //std::cout << dist << " " << currentCP <<  " " << Checks[currentCP].xp << " " << Checks[currentCP].yp << std::endl;
       if(currentCP==i)
       {
         app.draw(sCheck);

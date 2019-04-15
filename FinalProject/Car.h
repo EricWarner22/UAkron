@@ -34,12 +34,8 @@ struct Car
 	float findTarget(float nx, float ny,float tx, float ty, int & cp)
 	{
 		float dist = sqrt(((nx-tx)*(nx-tx)+(ny-ty)*(ny-ty)));
-		/*float beta = angle - std::atan2(tx - x, -ty + y);
-		if (std::sin(beta) < 0)
-		  angle += 0.005 * speed;
-		else
-		  angle -= 0.005 * speed;*/
-		if (dist < 105)
+
+		if (dist < 150)
 		  cp = (cp + 1) % num;
 
 		return dist;
