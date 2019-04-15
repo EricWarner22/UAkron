@@ -9,10 +9,6 @@
 
 using namespace sf;
 
-//int Cpoints[8][2] = { 270,  370,  1270,  430,  1380, 2420, 1800, 2460,
- //                    1850, 1700,  2500, 1680,  2150, 3200,  370, 3200, };
-
-
 int
 main()
 {
@@ -43,7 +39,7 @@ main()
 
 
   Car Holder[5] = {Player,Easy,Med,Hard,Wowzers};
-
+  
   CheckPoint Checks[8];
 
   Checks[0] = CheckPoint(270,370);
@@ -185,9 +181,13 @@ main()
       Checks[i].hover();
       sCheck.setPosition(Checks[i].xp-offsetX,Checks[i].yp-offsetY);
       sCheck.setColor(cpColors[rand()%3]);
-      app.draw(sCheck);
+      float dist = Player.findTarget(Holder[0].x,Holder[0].y,Checks[currentCP].xp,Checks[currentCP].yp,currentCP);
+      std::cout << dist << " " << currentCP <<  " " << Checks[currentCP].xp << " " << Checks[currentCP].yp << std::endl;
+      if(currentCP==i)
+      {
+        app.draw(sCheck);
+      }
     }
-
     //Hyper-simplified method of figuring out locations on this map
 
     /*for (int i=0;i<8;i++)
